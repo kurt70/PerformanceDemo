@@ -1,0 +1,26 @@
+
+### `.gitignore`
+```powershell
+@"
+# Build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+
+# VS / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs / temp
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+"@ | Set-Content -Encoding UTF8 .gitignore
