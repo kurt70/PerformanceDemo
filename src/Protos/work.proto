@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "PerformanceDemo.Proto";
+
+package perfreference;
+
+// Request message for work generation.
+message WorkRequest {
+  // Number of bytes to generate in the payload.
+  int32 payload_size = 1;
+  // Correlation identifier used for tracing only.
+  string correlation_id = 2;
+}
+
+// Response message for work generation.
+message WorkResponse {
+  // Large string payload.
+  string big_string = 1;
+  // Collection of small items to simulate list payloads.
+  repeated string items = 2;
+  // Metadata key-value pairs.
+  map<string, string> metadata = 3;
+}
+
+// gRPC service for work generation.
+service WorkService {
+  rpc GetWork (WorkRequest) returns (WorkResponse);
+}
